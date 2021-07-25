@@ -6,5 +6,5 @@ HoneyShell is a limited shell designed for use in ssh honeypots, all it does is 
 json encoded log lines to a file.
 
 ```
-honeyshell </path/to/logfil> <ipAddr:port>
+honeyshell </path/to/logfile> <ipAddr:port>
 ```
