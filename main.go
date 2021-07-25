@@ -17,7 +17,7 @@ func main() {
 	flag.Parse()
 	args := flag.Args()
 	logPath := args[0]
-	ipAddr := args[1]
+	ipInfo := strings.Split(args[1], ":")
 
 	// Setup logging
 	f, err := os.OpenFile(logPath,
@@ -42,7 +42,7 @@ func main() {
 			panic(err)
 		}
 		cmd = strings.TrimSpace(cmd)
-		log.WithFields(log.Fields{"commands": cmd, "ipaddr": ipAddr}).Info("cmd received")
+		log.WithFields(log.Fields{"commands": cmd, "ipaddr": ipInfo[0], "port": ipInfo[1]}).Info("cmd received")
 		if strings.Compare(cmd, "exit") == 0 {
 			running = false
 		}
